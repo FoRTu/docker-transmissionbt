@@ -13,6 +13,7 @@ The first step is to obtain a *transmission* configuration file, the **settings.
 ```
 docker run --rm -it [IMAGE] transmission-daemon --dump-settings > settings.json
 ```
+
 Now is time to edit the file to define how *transmission* is going to work:
 
 ```
@@ -35,7 +36,8 @@ Save changes and move `settings.json` to a secure place.
 
 ## Run a container
 
-Unse this tenplate:
+Use this tenplate:
+
 ```
 docker run -d --rm --name "transmission" \
 -p 9091:9091/tcp -p 51413:51413/tcp -p 51413:51413/udp \
@@ -45,6 +47,7 @@ docker run -d --rm --name "transmission" \
 ```
 
 For example:
+
 ```
 docker run -d --rm --name "transmission" \
 -p 9091:9091/tcp -p 51413:51413/tcp -p 51413:51413/udp \
