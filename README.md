@@ -1,13 +1,23 @@
 ## (UNDER DEVELOPMENT)
 
-# docker_transmissionbt
-Docker image of the transmissionbt
+# Transmission for Docker
 
-### Generate configure files
+A Docker container of [Transmission](https://transmissionbt.com/), the popular bittorrent client.
+
+## How to start
+
+The first step is to obtain a *transmission* configuration file, the **settings.json** file. All you have to do is run the following command:
+
+```
 docker run --rm -it [IMAGE] transmission-daemon --dump-settings > settings.json
+```
+Now is time to edit the file to define how *transmission* is going to work:
 
-### Edit settings.json
+```
 sudo nano settings.json
+```
+
+You can edit all the parameters you want, but this ones are the minum you have to edit to run *transmission* properly: 
 
 ```
 ...
@@ -19,10 +29,24 @@ sudo nano settings.json
 ...
 ```
 
-Save changes and move `settings.json` to a secure place
+Save changes and move `settings.json` to a secure place.
 
+## Run a container
 
-### RUN !!
-docker run -d --rm --name "transmission" -p 9091:9091/tcp -p 51413:51413/tcp -p 51413:51413/udp -v [SETTINGS.JSON PLACE]:/etc/transmission-daemon [PLACE TO SAVE DOWNLOADS]:/downloads test/transmission
-docker run -d --rm --name "transmission" -p 9092:9092/tcp -p 51413:51413/tcp -p 51413:51413/udp -v Transmission:/etc/transmission-daemon -v /media/Otros/Bittorrent/Done:/Downloads test/transmission
+Unse this tenplate:
+```
+docker run -d --rm --name "transmission" \
+-p 9091:9091/tcp -p 51413:51413/tcp -p 51413:51413/udp \
+-v [SETTINGS.JSON PLACE]:/etc/transmission-daemon \
+-v [PLACE TO SAVE DOWNLOADS]:/downloads\
+[DOCKER IMAGE]
+```
 
+For example:
+```
+docker run -d --rm --name "transmission" \
+-p 9091:9091/tcp -p 51413:51413/tcp -p 51413:51413/udp \
+-v /media/transmission/config:/etc/transmission-daemon \
+-v /media/transmission/downloads:/downloads\
+fortu/transmission
+```
