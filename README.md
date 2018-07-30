@@ -1,5 +1,3 @@
-## (UNDER DEVELOPMENT)
-
 ![Transmissionbt logo](https://raw.githubusercontent.com/FoRTu/docker-transmissionbt/master/logo.png) ![Transmission](https://transmissionbt.com/images/transmission.png)
 
 ## Transmission for Docker
@@ -17,7 +15,7 @@ docker run --rm -it [IMAGE] transmission-daemon --dump-settings > settings.json
 Now is time to edit the file to define how *transmission* is going to work:
 
 ```
-sudo nano settings.json
+nano settings.json
 ```
 
 You can edit all the parameters you want, but this ones are the minum you have to edit to run *transmission* properly: 
