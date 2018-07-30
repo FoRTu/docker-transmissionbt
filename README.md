@@ -1,6 +1,8 @@
 ## (UNDER DEVELOPMENT)
 
-# Transmission for Docker
+![Transmissionbt logo](https://raw.githubusercontent.com/FoRTu/docker-transmissionbt/master/logo.png) ![Transmission](https://transmissionbt.com/images/transmission.png)
+
+## Transmission for Docker
 
 A Docker container of [Transmission](https://transmissionbt.com/), the popular bittorrent client.
 
